@@ -7,7 +7,7 @@
     </div>
     <div class="table-body">
       <div class="table-row" v-for="(item, index) in sortedData" :key="index">
-        <div class="tablet-row__item">{{ item.name }}</div>
+        <div class="table-row__item">{{ item.name }}</div>
         <div class="table-row__item">{{ item.current }}</div>
         <div class="table-row__item" :class="item.change >= 0 ? 'success' : 'danger'">{{ item.change }}</div>
       </div>
