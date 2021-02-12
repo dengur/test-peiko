@@ -25,18 +25,18 @@ export default {
   },
   computed: {
     sortedData() {
-      const newData = this.data.stocks.map((item, index) => {
-        const name = item
-        const current = parseFloat(this.data.current[index].toFixed(2))
-        const change = parseFloat((this.data.current[index] - this.data.start[index]).toFixed(2))
-        return {name, current, change}
-      })
-      newData.sort((a, b) => {
-        if (a.name < b.name) return -1
-        if (a.name > b.name) return 1
-        return 0
-      })
-      return newData
+      return this.data.stocks
+          .map((item, index) => {
+            const name = item
+            const current = this.data.current[index].toFixed(2)
+            const change = (this.data.current[index] - this.data.start[index]).toFixed(2)
+            return {name, current: +current, change: +change}
+          })
+          .sort((a, b) => {
+            if (a.name < b.name) return -1
+            if (a.name > b.name) return 1
+            return 0
+          })
     }
   }
 }
